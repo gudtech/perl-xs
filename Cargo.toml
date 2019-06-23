@@ -1,8 +1,15 @@
 [package]
 name = "perl-xs"
 version = "0.1.0"
-authors = ["Vickenty Fesunov <kent@setattr.net>"]
-license = "BSD-2-Clause"
+authors = ["Perl-xs authors"]
+license = "MIT/Apache-2.0"
+edition = "2018"
+
+[features]
+debug_print_generated_code = ["perl-xs-macro/debug_print_generated_code"]
 
 [dependencies]
+perl-xs-common = { path  = "crates/common" }
+perl-xs-macro = { path = "crates/macro" }
+perl-xs-derive-macro = { path  = "crates/derive-macro" }
 perl-sys = { git="https://github.com/gudtech/perl-sys" }

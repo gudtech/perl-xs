@@ -1,11 +1,10 @@
-extern crate perl_xs;
 extern crate proc_macro;
 #[macro_use]
 extern crate quote;
 extern crate syn;
 
-extern crate perlxs_derive_internals;
-use perlxs_derive_internals as internals;
+extern crate perl_xs_derive_macro_support;
+use perl_xs_derive_macro_support as internals;
 
 use proc_macro::TokenStream;
 use syn::{Ident, Lit, StrStyle, VariantData};
@@ -154,7 +153,7 @@ fn impl_from_kv(ast: &syn::MacroInput) -> quote::Tokens {
     quote! {
         #[allow(non_upper_case_globals)]
         const #dummy_const: () = {
-            extern crate perl_xs as _perlxs;
+            //extern crate perl_xs as _perlxs;
             #impl_block
         };
     }

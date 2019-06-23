@@ -1,0 +1,16 @@
+[package]
+name = "perl-xs-macro-support"
+version = "0.2.47"
+authors = ["The perl-xs Developers"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/vickenty/perl-xs/tree/master/crates/macro-support"
+description = """
+The part of the implementation of the `#[perlxs]` attribute that is not in the shared backend crate
+"""
+edition = '2018'
+
+[dependencies]
+perl-xs-common = { path  = "../common" }
+syn = { version = '0.15.0', features = ['visit'] }
+quote = '0.6'
+proc-macro2 = "0.4.9"

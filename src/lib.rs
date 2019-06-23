@@ -6,6 +6,9 @@
 extern crate perl_sys;
 
 #[macro_use]
+extern crate perl_xs_derive_macro;
+
+#[macro_use]
 mod macros;
 #[macro_use]
 mod helper_macros;
@@ -24,10 +27,11 @@ pub mod error;
 #[doc(hidden)]
 pub mod croak;
 
-pub use array::AV;
-pub use context::Context;
-pub use convert::FromPerlKV;
-pub use hash::HV;
-pub use raw::{G_DISCARD, G_VOID};
-pub use raw::{SSize_t, Size_t, IV, NV, STRLEN, UV};
-pub use scalar::{DataRef, SV};
+pub use crate::array::AV;
+pub use crate::context::Context;
+pub use crate::convert::FromPerlKV;
+pub use crate::hash::HV;
+pub use crate::raw::{G_DISCARD, G_VOID};
+pub use crate::raw::{SSize_t, Size_t, IV, NV, STRLEN, UV};
+pub use crate::scalar::{DataRef, SV};
+

@@ -41,7 +41,7 @@ impl Context {
             raw::catch_unwind(perl, || {
                 let mut ctx = Context {
                     perl: perl,
-                    stack: std::mem::MaybeUninit::uninit().assume_init(),
+                    stack: std::mem::uninitialized(),
                 };
 
                 perl.ouroboros_stack_init(&mut ctx.stack);

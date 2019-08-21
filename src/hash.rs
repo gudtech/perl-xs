@@ -154,8 +154,8 @@ impl<'a, T: FromSV> Iterator for Iter<'a, T> {
             let pthx = self.hv.pthx();
             let hv_ptr = self.hv.as_ptr();
 
-            let mut k_ptr: *mut i8 = std::mem::MaybeUninit::uninit().assume_init();
-            let mut klen: raw::I32 = std::mem::MaybeUninit::uninit().assume_init();
+            let mut k_ptr: *mut i8 = std::mem::uninitialized();
+            let mut klen: raw::I32 = std::mem::uninitialized();
             let v = pthx.hv_iternextsv(
                 hv_ptr,
                 &mut k_ptr as *mut _,
@@ -226,7 +226,7 @@ impl<'a> Iterator for Keys<'a> {
             if he.is_null() {
                 None
             } else {
-                let mut klen: raw::I32 = std::mem::MaybeUninit::uninit().assume_init();
+                let mut klen: raw::I32 = std::mem::uninitialized();
                 let k_ptr = pthx.hv_iterkey(he, &mut klen as *mut _) as *const u8;
                 let k = from_raw_parts(k_ptr, klen as usize);
                 Some(k)
